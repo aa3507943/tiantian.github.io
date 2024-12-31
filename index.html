@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感謝信</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('tian1.jpg'), url('tian2.jpg');
+            background-repeat: repeat, repeat;
+            background-position: top left, bottom right; /* 兩張圖片交錯排列 */
+            background-size: 20% 50%; /* 保持圖片比例 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+
+        /* 定義淡入動畫 */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            display: none; /* 初始不顯示標題 */
+            animation: fadeIn 1.5s ease-out forwards; /* 淡入動畫 */
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 2rem; /* 增大字型大小 */
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 80%;
+            max-width: 1000px;
+            overflow: hidden;
+            word-wrap: break-word; /* 保證文字換行 */
+            min-height: 80px;
+            white-space: pre-wrap; /* 保留換行 */
+            text-align: left; /* 文字靠左對齊 */
+            display: none; /* 初始不顯示信件內容 */
+            animation: fadeIn 2s ease-out forwards; /* 淡入動畫 */
+        }
+
+        .message span {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #c94e1f;
+        }
+    </style>
+</head>
+<body>
+    <!-- 拆開信封按鈕 -->
+    <button class="btn" onclick="openEnvelope()">用力點我</button>
+
+    <!-- 隱藏的標題和內容 -->
+    <h1>感謝信</h1>
+    <div class="message" id="message">
+        Dear Tian,
+
+        應該是從戴牙套時期就開始追隨妳了 ~
+        但真的開始活躍還是2024下半年吧，在結束上一段感情和換工作的動盪時，  
+        感謝妳在我低潮的時候，像陽光一樣溫暖和閃耀著，總是給我滿滿正能量、樂觀和熱情，
+        讓我很快能走出低潮期。  
+
+        感謝有機會能到現場看妳的演出，有重拾年輕時追星的悸動。
+        感謝一路走來的妳不斷成長茁壯，有種看著妹妹長大的感動。
+        感謝妳替我唱的生日歌，真的很可愛，我有偷偷錄起來放唷。  
+        感謝妳記得一些我的瑣碎事，連捷運的豔遇都記得 XD，有暖到。
+        有好多好多的感謝，我I人不敢當面說，就用這樣的方式在一年的尾聲讓妳知道。
+        (要保密喔，噓)
+
+        2024要過完了，2025相信還會有更多挑戰吧，新的一年要再請妳多多指教了。  
+        在築夢和追尋目標的路上，我們一起加油。  
+        受挫、難過、想放棄時，不要忘記我們天天幫永遠是妳的後盾。
+
+        預祝新的一年平安順利，要顧好妳的健康，繼續當我們的天天維他命  
+        未來若時間能對得上，妳的每場演出我會盡力到場為妳應援的 d( • ̀ω•́ )b  
+        
+        會永遠支持妳的
+        
+                                                                2025新年快樂 My Boss、露面歌王、膽小天
+    </div>
+
+    <script>
+        function openEnvelope() {
+            // 顯示標題和信件內容並開始淡入動畫
+            document.querySelector('h1').style.display = 'block';
+            document.querySelector('.message').style.display = 'block';
+
+            // 播放音樂
+            const audio = new Audio('123.mp3');
+            audio.play();
+            audio.volume = 0.3;
+            audio.loop = true; // 音樂循環播放
+
+            // 隱藏拆開信封按鈕
+            document.querySelector('.btn').style.display = 'none';
+        }
+
+        function adjustFontSize() {
+            const messageDiv = document.getElementById('message');
+            const textLength = messageDiv.textContent.length;
+
+            // 根據文字長度來調整字型大小
+            if (textLength < 50) {
+                messageDiv.style.fontSize = '2rem'; /* 初始較大字型 */
+            } else if (textLength < 150) {
+                messageDiv.style.fontSize = '1.8rem';
+            } else {
+                messageDiv.style.fontSize = '1.5rem';
+            }
+        }
+
+        // 頁面載入時初始化字型大小
+        window.onload = adjustFontSize;
+    </script>
+</body>
+</html>
