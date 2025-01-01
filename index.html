@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1920, height=1080, user-scalable=no, initial-scale=1.0">
     <title>感謝信</title>
     <style>
         body {
@@ -43,16 +43,15 @@
         .message {
             margin-top: 20px;
             padding: 10px;
-            font-size: 2rem; /* 增大字型大小 */
+            font-size: 4vw; /* 增大字型大小 */
             border: 2px solid #fff;
             border-radius: 5px;
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
             width: 80%;
             max-width: 1000px;
-            overflow: hidden;
-            word-wrap: break-word; /* 保證文字換行 */
-            min-height: 80px;
+            overflow-y: scroll; /* 使內容溢出時顯示滾動條 */
+            max-height: 80vh; /* 設定最大高度為80%視窗高度 */
             white-space: pre-wrap; /* 保留換行 */
             text-align: left; /* 文字靠左對齊 */
             display: none; /* 初始不顯示信件內容 */
